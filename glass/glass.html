@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Glass Break</title>
+    <link rel="stylesheet" href="glass.css">
+    <style>
+        /* Page Background */
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #0a0a0a, #1a1a1a, #000);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Glowing Title */
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-align: center;
+            letter-spacing: 2px;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff,
+                         0 0 20px #00ffff,
+                         0 0 30px #00ccff;
+            animation: glowPulse 2s infinite alternate;
+        }
+        @keyframes glowPulse {
+            from { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+            to   { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ccff; }
+        }
+
+        /* Canvas Styling */
+        #glassCanvas {
+            background: rgba(255, 255, 255, 0.05);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        #glassCanvas:hover {
+            transform: scale(1.01);
+        }
+
+        /* Reset Button - Futuristic Glassmorphism */
+        #resetBtn {
+            margin-bottom: 15px;
+            padding: 10px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: rgba(0, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0, 255, 255, 0.3), 
+                        inset 0 0 10px rgba(0, 255, 255, 0.4);
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        #resetBtn:hover {
+            background: rgba(0, 255, 255, 0.15);
+            box-shadow: 0 6px 25px rgba(0, 255, 255, 0.5), 
+                        inset 0 0 15px rgba(0, 255, 255, 0.6);
+            transform: scale(1.07);
+        }
+        #resetBtn:active {
+            transform: scale(0.97);
+            box-shadow: 0 2px 15px rgba(0, 255, 255, 0.4), 
+                        inset 0 0 8px rgba(0, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>💥 Tap to Break the Glass</h1>
+    <button id="resetBtn">🔄 Reset Glass</button>
+    <canvas id="glassCanvas"></canvas>
+    <script src="glass.js"></script>
+</body>
+</html>
