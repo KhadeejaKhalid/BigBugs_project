@@ -1,0 +1,41 @@
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+    background: linear-gradient(135deg, #98b4d5, #928383); /* your nice bg */
+}
+
+/* Rectangle area for bubbles */
+.bubble-area {
+    background: rgba(255, 255, 255, 0.1); /* transparent white overlay */
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 60px);
+    gap: 10px;
+    justify-content: center;
+    max-width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Bubble styling */
+.bubble {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #cbdeef 70%);
+    border-radius: 50%;
+    box-shadow: inset -4px -4px 8px rgba(255,255,255,0.8),
+                inset 4px 4px 8px rgba(0,0,0,0.2),
+                0 4px 6px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.bubble:active {
+    transform: scale(0.9);
+    background: radial-gradient(circle at 30% 30%, #938a8a 0%, #918a8a 70%);
+}
