@@ -1,30 +1,24 @@
 const bubbleArea = document.getElementById("bubbleArea");
+const bubbleCountDisplay = document.getElementById("bubbleCount");
 
-// Load pop sound
-const popSound = new Audio("pop.mp3"); // place pop.mp3 in same folder
+let bubbleCount = 0;
+const popSound = new Audio("pop.mp3"); // Your pop sound file
 
 function createBubble() {
     const bubble = document.createElement("div");
     bubble.classList.add("bubble");
 
     bubble.addEventListener("click", () => {
-        // Play sound
-        popSound.currentTime = 0; // rewind to start so it can play rapidly
+        popSound.currentTime = 0;
         popSound.play();
-
-        // Pop animation
-        bubble.style.transform = "scale(0.9)";
-        bubble.style.background = "radial-gradient(circle at 30% 30%, #ffcccc 0%, #ff8888 70%)";
-        setTimeout(() => {
-            bubble.style.transform = "scale(1)";
-            bubble.style.background = "radial-gradient(circle at 30% 30%, #ffffff 0%, #d1e3f3 70%)";
-        }, 200);
+        bubbleCount++;
+        bubbleCountDisplay.textContent = bubbleCount;
     });
 
     return bubble;
 }
 
-// Generate more bubbles
-for (let i = 0; i < 209; i++) {
+// Generate 200 bubbles
+for (let i = 0; i < 200; i++) {
     bubbleArea.appendChild(createBubble());
 }
